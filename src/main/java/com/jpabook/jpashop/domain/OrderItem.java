@@ -5,10 +5,12 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter @Setter
-public class OrderItems {
+public class OrderItem {
 
     @Id @GeneratedValue
     @Column(name = "order_item_id")
