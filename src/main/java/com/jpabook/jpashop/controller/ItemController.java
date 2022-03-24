@@ -5,6 +5,7 @@ import com.jpabook.jpashop.domain.item.Book;
 import com.jpabook.jpashop.domain.item.Item;
 import com.jpabook.jpashop.service.ItemService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +17,7 @@ import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
+@Slf4j
 public class ItemController {
 
     private final ItemService itemService;
@@ -73,8 +75,9 @@ public class ItemController {
 //        book.setStockQuantity(form.getStockQuantity());
 //        book.setAuthor(form.getAuthor());
 //        book.setIsbn(form.getIsbn());
-
-        itemService.updateItem(itemId,form);
+            System.out.println(itemId);
+            System.out.println(form);
+        itemService.updateItem(itemId,form.getName(),form.getPrice(),form.getStockQuantity());
         return "redirect:/items";
 
     }
